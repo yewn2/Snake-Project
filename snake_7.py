@@ -1,5 +1,4 @@
 import pygame
-import time
 import random
 
 pygame.init()
@@ -52,6 +51,7 @@ def game_loop():
         while game_over:
             screen.fill(black)
             message("You died! Press 'Q' to Quit or 'A' to play Again", red, black)
+            pygame.display.update()
 
             # Check if user wants to quit (Q) or play again (A)
             for event in pygame.event.get():
@@ -60,7 +60,7 @@ def game_loop():
                         quit_game = True
                         game_over = False
                     if event.key == pygame.K_a:
-                        game_loop() # Restart the main game loop
+                        game_loop()  # Restart the main game loop
         # Original set-up for arrow keys to move the snake
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -109,4 +109,3 @@ def game_loop():
 
 # Main routine
 game_loop()
-
